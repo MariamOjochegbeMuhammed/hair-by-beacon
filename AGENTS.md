@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep imported content in its own TanStack file route with page-scoped captured styles; this preserves the original pages without replacing the home page.

@@ -1,8 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import capturedCSS from "../styles/site.css?raw";
 
+const TITLE = "Hair_by_beacon | Beauty Supply Store in Kubwa, Abuja";
+const DESC = "Discover hair essentials, wigs, braiding hair and beauty must-haves at Hair_by_beacon in Kubwa, Abuja.";
+
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Hair_by_beacon | Beauty Supply Store in Kubwa, Abuja" }] }),
+  head: () => ({ meta: [
+    { title: TITLE },
+    { name: "description", content: DESC },
+    { property: "og:title", content: TITLE },
+    { property: "og:description", content: DESC },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   staticData: { importedDocument: { html: { "lang": "en" }, body: { "data-site-import-responsive-incomplete": "scroll" } } },
   component: Index,
 });
@@ -73,6 +84,13 @@ function Index() {
 }
 
 function ImportedHeader() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
   return (
     <header className={"sticky top-0 z-40 \x62order-b \x62g-background/\x390 \x62ackdrop-blur"}>
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 md:h-28 md:px-8">
@@ -95,15 +113,29 @@ function ImportedHeader() {
               <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
             </svg>
           </a>
-          <button className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden"} aria-label="Menu" aria-expanded="false">
-            <svg className="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M4 5h16" />
-              <path d="M4 12h16" />
-              <path d="M4 19h16" />
-            </svg>
+          <button type="button" onClick={() => setOpen((o) => !o)} className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden" + (open ? " \x62g-secondary" : "")} aria-label={open ? "Close menu" : "Menu"} aria-expanded={open} aria-controls="mobile-nav">
+            {open ? (
+              <svg className="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            ) : (
+              <svg className="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4 5h16" />
+                <path d="M4 12h16" />
+                <path d="M4 19h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
+      {open && (
+        <nav id="mobile-nav" className="border-t bg-background px-4 pb-6 md:hidden" aria-label="Mobile">
+          <a className="block border-b py-4 font-display text-xl active" href="/" aria-current="page">Home</a>
+          <a className="block border-b py-4 font-display text-xl" href="/shop">Shop</a>
+          <a className="block border-b py-4 font-display text-xl" href="/categories">Categories</a>
+          <a className="block border-b py-4 font-display text-xl" href="/about">About Us</a>
+          <a className="block border-b py-4 font-display text-xl" href="/contact">Contact</a>
+          <a href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp mt-5 w-full"><svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Chat on WhatsApp</a>
+        </nav>
+      )}
     </header>
   );
 }

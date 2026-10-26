@@ -1,0 +1,2 @@
+- [ ] Restore Shop, Categories, About Us and Contact from the original website.
+- [ ] Verify all four navigation links and direct page loads.

@@ -1,0 +1,375 @@
+import { createFileRoute } from "@tanstack/react-router";
+import capturedCSS from "../styles/pages/shop.css?raw";
+
+export const Route = createFileRoute("/shop")({
+  head: () => ({ meta: [{ title: "Shop Beauty Essentials | Hair_by_beacon Kubwa" }] }),
+  staticData: { importedDocument: { html: { "lang": "en" }, body: {  } } },
+  component: Index,
+});
+
+function Index() {
+  return (
+    <>
+      <style>{capturedCSS}</style>
+      <div className={"\x62g-primary px-4 py-2 text-center text-xs font-medium tracking-wide text-primary-foreground"}>Your Beauty Essentials, All in One Place ✨</div>
+      <ImportedHeader />
+      <main>
+        <section className={"\x62g-blush"}>
+          <div className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
+            <p className="eyebrow">The collection</p>
+            <h1 className="mt-3 text-4xl text-primary md:text-6xl">Shop Beauty Essentials</h1>
+            <p className="mt-4 max-w-xl text-muted-foreground">Contact us on WhatsApp for current prices and availability.</p>
+          </div>
+        </section>
+        <div className="mx-auto max-w-7xl px-4 py-10 md:px-8">
+          <div className="grid gap-3 md:grid-cols-[1fr_auto_auto_auto]">
+            <label className="relative">
+              <span className={"\x73r-only"}>Search products</span>
+              <svg className={"absolute left-4 top-1/2 size-4 \x2dtranslate-y-1/\x32 text-muted-foreground"} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="m21 21-4.34-4.34" />
+                <circle cx="11" cy="11" r="8" />
+              </svg>
+              <input className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring w-full pl-10"} placeholder="Search products…" defaultValue="" />
+            </label>
+            <div>
+              <span role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="bb-customSelect-wq5Hl-panel" aria-activedescendant="bb-customSelect-wq5Hl-selectedOption" tabIndex={0}>
+                <span>All categories</span>
+              </span>
+              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Category" tabIndex={-1} defaultValue="">
+                <option value="">All categories</option>
+                <option value="wigs-extensions">Wigs &amp; Hair Extensions</option>
+                <option value="braiding-hair">Braiding Hair</option>
+                <option value="weaves-closures">Weaves &amp; Closures</option>
+                <option value="haircare">Haircare &amp; Treatment</option>
+                <option value="styling">Hair Styling Products</option>
+                <option value="accessories">Hair Accessories</option>
+                <option value="beauty-essentials">Beauty Essentials</option>
+              </select>
+              <div id="bb-customSelect-wq5Hl-panel" role="listbox">
+                <div role="option" id="bb-customSelect-wq5Hl-selectedOption">All categories</div>
+                <div role="option">Wigs &amp; Hair Extensions</div>
+                <div role="option">Braiding Hair</div>
+                <div role="option">Weaves &amp; Closures</div>
+                <div role="option">Haircare &amp; Treatment</div>
+                <div role="option">Hair Styling Products</div>
+                <div role="option">Hair Accessories</div>
+                <div role="option">Beauty Essentials</div>
+              </div>
+            </div>
+            <div>
+              <span role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="bb-customSelect-bPbxz-panel" aria-activedescendant="bb-customSelect-bPbxz-selectedOption" tabIndex={0}>
+                <span>Any availability</span>
+              </span>
+              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Availability" tabIndex={-1} defaultValue="">
+                <option value="">Any availability</option>
+                <option value="in_stock">In stock</option>
+                <option value="ask">Ask for availability</option>
+                <option value="out_of_stock">Out of stock</option>
+              </select>
+              <div id="bb-customSelect-bPbxz-panel" role="listbox">
+                <div role="option" id="bb-customSelect-bPbxz-selectedOption">Any availability</div>
+                <div role="option">In stock</div>
+                <div role="option">Ask for availability</div>
+                <div role="option">Out of stock</div>
+              </div>
+            </div>
+            <div>
+              <span role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="bb-customSelect-gemxz-panel" aria-activedescendant="bb-customSelect-gemxz-selectedOption" tabIndex={0}>
+                <span>Newest</span>
+              </span>
+              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Sort" tabIndex={-1} defaultValue="newest">
+                <option value="newest">Newest</option>
+                <option value="low">Price: low to high</option>
+                <option value="high">Price: high to low</option>
+              </select>
+              <div id="bb-customSelect-gemxz-panel" role="listbox">
+                <div role="option" id="bb-customSelect-gemxz-selectedOption">Newest</div>
+                <div role="option">Price: low to high</div>
+                <div role="option">Price: high to low</div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/black-curly-bob-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Black Curly Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/9663927b481fda02.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/black-curly-bob-wig">Black Curly Bob Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/black-curly-bob-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Black%20Curly%20Bob%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/burgundy-pixie-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Burgundy Pixie Wig" loading="lazy" width="896" height="1120" src="/site-assets/85103cb63ab3cd33.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/burgundy-pixie-wig">Burgundy Pixie Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/burgundy-pixie-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Burgundy%20Pixie%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/long-black-curly-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Long Black Curly Wig" loading="lazy" width="896" height="1120" src="/site-assets/53e26930263430b0.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/long-black-curly-wig">Long Black Curly Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/long-black-curly-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Long%20Black%20Curly%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/blonde-curled-bob-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Blonde Curled Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/74c7c0af3bc42021.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/blonde-curled-bob-wig">Blonde Curled Bob Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/blonde-curled-bob-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Blonde%20Curled%20Bob%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/silver-grey-curled-bob-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Silver Grey Curled Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/e38bc4a7fec9ea48.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/silver-grey-curled-bob-wig">Silver Grey Curled Bob Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/silver-grey-curled-bob-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Silver%20Grey%20Curled%20Bob%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/long-brown-wave-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Long Brown Wave Wig" loading="lazy" width="896" height="1120" src="/site-assets/36d0cd42d8db5863.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/long-brown-wave-wig">Long Brown Wave Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/long-brown-wave-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Long%20Brown%20Wave%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/brown-curly-bob-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Brown Curly Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/59bf19b048cb29f4.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/brown-curly-bob-wig">Brown Curly Bob Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/brown-curly-bob-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Brown%20Curly%20Bob%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/burgundy-curly-bob-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Burgundy Curly Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/1929888fd4b36281.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/burgundy-curly-bob-wig">Burgundy Curly Bob Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/burgundy-curly-bob-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Burgundy%20Curly%20Bob%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+            <article className="group flex flex-col">
+              <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/long-straight-black-wig">
+                <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Long Straight Black Wig" loading="lazy" width="896" height="1120" src="/site-assets/0d9de28c34dfba5b.jpg" />
+              </a>
+              <div className="mt-3 flex flex-1 flex-col">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-gold">Wigs &amp; Hair Extensions</p>
+                <h3 className="mt-1 text-lg leading-tight md:text-xl">
+                  <a className="hover:text-primary" href="/product/long-straight-black-wig">Long Straight Black Wig</a>
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-primary">Contact us for price</p>
+                <p className="text-xs text-muted-foreground">Ask for availability</p>
+                <div className={"mt-3 flex flex-col gap-2 \x73m:\x66lex-row"}>
+                  <a className="btn btn-outline !min-h-10 flex-1 !px-3 !text-xs" href="/product/long-straight-black-wig">View Details</a>
+                  <a className="btn btn-whatsapp !min-h-10 flex-1 !px-3 !text-xs" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20am%20interested%20in%20Long%20Straight%20Black%20Wig.%20Please%20confirm%20the%20current%20price%2C%20availability%2C%20and%20delivery%20or%20collection%20options." rel="noopener noreferrer" target="_blank"><svg className="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> Order</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <ImportedFooter />
+      <a className={"fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full \x62g-whatsapp text-whatsapp-foreground \x73hadow-soft transition \x68over:\x73cale-105"} aria-label="Chat on WhatsApp" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." rel="noopener noreferrer" target="_blank">
+        <svg className="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+        </svg>
+      </a>
+      <section aria-label="Notifications alt+T" tabIndex={-1} aria-live="polite" aria-relevant="additions text" aria-atomic="false" />
+      <ImportedAsideEditWithLovable />
+    </>
+  );
+}
+
+function ImportedHeader() {
+  return (
+    <header className={"sticky top-0 z-40 \x62order-b \x62g-background/\x390 \x62ackdrop-blur"}>
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 md:h-28 md:px-8">
+        <a className="flex shrink-0 items-center" aria-label="Hair_by_beacon home" href="/">
+          <img className="size-20 object-contain md:size-24" src="/site-assets/a1218ca0564088bb.png" alt="Hair by Beacon — gold woman and lighthouse logo" width="768" height="768" />
+        </a>
+        <nav className={"hidden gap-8 \x6dd:\x66lex"} aria-label="Main">
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/">Home</a>
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary text-primary"} aria-current="page" href="#">Shop</a>
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/categories">Categories</a>
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/about">About Us</a>
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/contact">Contact</a>
+        </nav>
+        <div className="flex items-center gap-2">
+          <a className={"btn btn-whatsapp hidden !min-h-10 !px-4 \x73m:\x69nline-flex"} href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." rel="noopener noreferrer" target="_blank"><svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> WhatsApp</a>
+          <a className={"relative grid size-11 place-items-center rounded-full \x68over:\x62g-secondary"} aria-label="Order list, 0 items" href="/cart">
+            <svg className="size-5 text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M16 10a4 4 0 0 1-8 0" />
+              <path d="M3.103 6.034h17.794" />
+              <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+            </svg>
+          </a>
+          <button className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden"} aria-label="Menu" aria-expanded="false">
+            <svg className="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M4 5h16" />
+              <path d="M4 12h16" />
+              <path d="M4 19h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function ImportedFooter() {
+  return (
+    <footer className={"mt-24 \x62g-primary text-primary-foreground"}>
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-4 md:px-8">
+        <div>
+          <a className="inline-block" aria-label="Hair_by_beacon home" href="/">
+            <img className="size-36 object-contain" src="/site-assets/a1218ca0564088bb.png" alt="Hair by Beacon — gold woman and lighthouse logo" width="768" height="768" loading="lazy" />
+          </a>
+          <p className={"mt-3 text-sm \x74ext-primary-foreground/\x375"}>Your beauty supply destination in Kubwa, Abuja — hair and beauty essentials in one place.</p>
+        </div>
+        <div>
+          <p className="eyebrow">Quick links</p>
+          <ul className={"mt-4 \x73pace-y-2 text-sm"}>
+            <li>
+              <a className="hover:text-gold" href="/">Home</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" aria-current="page" href="#">Shop</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="/categories">Categories</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="/about">About Us</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="/contact">Contact</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="/privacy">Privacy Policy</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="/terms">Terms &amp; Conditions</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p className="eyebrow">Categories</p>
+          <ul className={"mt-4 \x73pace-y-2 text-sm"}>
+            <li>
+              <a className="hover:text-gold" href="?category=wigs-extensions">Wigs &amp; Hair Extensions</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="?category=braiding-hair">Braiding Hair</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="?category=weaves-closures">Weaves &amp; Closures</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="?category=haircare">Haircare &amp; Treatment</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="?category=styling">Hair Styling Products</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="?category=accessories">Hair Accessories</a>
+            </li>
+            <li>
+              <a className="hover:text-gold" href="?category=beauty-essentials">Beauty Essentials</a>
+            </li>
+          </ul>
+        </div>
+        <div className={"\x73pace-y-3 text-sm"}>
+          <p className="eyebrow">Visit &amp; contact</p>
+          <a className="flex gap-2 hover:text-gold" href="tel:+2347025941898"><svg className="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>+234 702 594 1898</a>
+          <a className="flex gap-2 hover:text-gold" href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." rel="noopener noreferrer" target="_blank"><svg className="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>WhatsApp us</a>
+          <a className="flex gap-2 hover:text-gold" href={"https://www.google.com/maps/search/?api=1&query=Hair_by_beacon%2C%20Apumiri%20Close%2C%20Maroko%20Road%2C%20Kubwa%2C%20Abuja%2C%20Nigeria"} rel="noopener noreferrer" target="_blank"><svg className="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>Apumiri Close, Maroko Road, PW, Kubwa 901101, FCT, Nigeria</a>
+        </div>
+      </div>
+      <div className={"\x62order-t \x62order-primary-foreground/\x315 py-6 text-center text-xs \x74ext-primary-foreground/\x360"}>© 2026 Hair_by_beacon. All rights reserved.</div>
+    </footer>
+  );
+}
+
+function ImportedAsideEditWithLovable() {
+  return (
+    <aside className="[will-change:transform,opacity]" id="lovable-badge" role="complementary" dir="ltr" lang="en" aria-label="Edit with Lovable"><a aria-label="Edit with Lovable" href="https://lovable.dev/projects/lovp_5bb61qba3n9yx860m4dhs1vvye?utm_source=lovable-badge" id="lovable-badge-cta" rel="noopener nofollow" target="_blank">{"\n\t\t"}<span id="lovable-badge-text">Edit with</span>{"\n\t\t"}<span id="lovable-badge-logo"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">{"\n  "}<path fill="#FCFBF8" fillRule="evenodd" d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z" clipRule="evenodd" />{"\n  "}<path fill="#FCFBF8" d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z" />{"\n  "}<path fill="url(#a)" fillRule="evenodd" d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z" clipRule="evenodd" />{"\n  "}<defs><radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)" gradientUnits="userSpaceOnUse"><stop offset=".106" stopColor="#FE7B02" /><stop offset=".394" stopColor="#FE3F21" /><stop offset=".608" stopColor="#F858BC" /><stop offset=".929" stopColor="#575ECF" /></radialGradient></defs>{"\n"}</svg>{"\n\n"}</span>{"\n\t"}</a><span id="lovable-badge-divider" aria-hidden="true" /><button className="min-w-[24px]" id="lovable-badge-close" aria-label="Dismiss" title="Dismiss" type="button">{"\n\t\t"}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">{"\n\t\t\t"}<path d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z" />{"\n\t\t"}</svg>{"\n\t"}</button></aside>
+  );
+}

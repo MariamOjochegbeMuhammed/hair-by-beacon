@@ -1,13 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/shop.css?raw";
 
 export const Route = createFileRoute("/shop")({
-  head: () => ({ meta: [{ title: "Shop Beauty Essentials | Hair_by_beacon Kubwa" }] }),
+  head: () => ({ meta: [
+    { title: "Shop Beauty Essentials | Hair_by_beacon Kubwa" },
+    { name: "description", content: "Browse wigs and beauty essentials at Hair_by_beacon in Kubwa, Abuja. Contact us for prices and availability." },
+    { property: "og:title", content: "Shop Beauty Essentials | Hair_by_beacon Kubwa" },
+    { property: "og:description", content: "Browse wigs and beauty essentials at Hair_by_beacon in Kubwa, Abuja. Contact us for prices and availability." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   staticData: { importedDocument: { html: { "lang": "en" }, body: {  } } },
   component: Index,
 });
 
 function Index() {
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
+  const [availability, setAvailability] = useState("");
+  useEffect(() => { setCategory(new URLSearchParams(window.location.search).get("category") ?? ""); }, []);
   return (
     <>
       <style>{capturedCSS}</style>
@@ -29,13 +41,10 @@ function Index() {
                 <path d="m21 21-4.34-4.34" />
                 <circle cx="11" cy="11" r="8" />
               </svg>
-              <input className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring w-full pl-10"} placeholder="Search products…" defaultValue="" />
+              <input className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring w-full pl-10"} placeholder="Search products…" value={query} onChange={event => setQuery(event.target.value)} />
             </label>
             <div>
-              <span role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="bb-customSelect-wq5Hl-panel" aria-activedescendant="bb-customSelect-wq5Hl-selectedOption" tabIndex={0}>
-                <span>All categories</span>
-              </span>
-              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Category" tabIndex={-1} defaultValue="">
+              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Category" value={category} onChange={event => setCategory(event.target.value)}>
                 <option value="">All categories</option>
                 <option value="wigs-extensions">Wigs &amp; Hair Extensions</option>
                 <option value="braiding-hair">Braiding Hair</option>
@@ -45,52 +54,26 @@ function Index() {
                 <option value="accessories">Hair Accessories</option>
                 <option value="beauty-essentials">Beauty Essentials</option>
               </select>
-              <div id="bb-customSelect-wq5Hl-panel" role="listbox">
-                <div role="option" id="bb-customSelect-wq5Hl-selectedOption">All categories</div>
-                <div role="option">Wigs &amp; Hair Extensions</div>
-                <div role="option">Braiding Hair</div>
-                <div role="option">Weaves &amp; Closures</div>
-                <div role="option">Haircare &amp; Treatment</div>
-                <div role="option">Hair Styling Products</div>
-                <div role="option">Hair Accessories</div>
-                <div role="option">Beauty Essentials</div>
-              </div>
             </div>
             <div>
-              <span role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="bb-customSelect-bPbxz-panel" aria-activedescendant="bb-customSelect-bPbxz-selectedOption" tabIndex={0}>
-                <span>Any availability</span>
-              </span>
-              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Availability" tabIndex={-1} defaultValue="">
+              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Availability" value={availability} onChange={event => setAvailability(event.target.value)}>
                 <option value="">Any availability</option>
                 <option value="in_stock">In stock</option>
                 <option value="ask">Ask for availability</option>
                 <option value="out_of_stock">Out of stock</option>
               </select>
-              <div id="bb-customSelect-bPbxz-panel" role="listbox">
-                <div role="option" id="bb-customSelect-bPbxz-selectedOption">Any availability</div>
-                <div role="option">In stock</div>
-                <div role="option">Ask for availability</div>
-                <div role="option">Out of stock</div>
-              </div>
             </div>
             <div>
-              <span role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="bb-customSelect-gemxz-panel" aria-activedescendant="bb-customSelect-gemxz-selectedOption" tabIndex={0}>
-                <span>Newest</span>
-              </span>
-              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Sort" tabIndex={-1} defaultValue="newest">
+              <select className={"h-11 rounded-full \x62order \x62g-card px-4 text-sm \x66ocus:\x6futline-none \x66ocus:\x72ing-2 \x66ocus:\x72ing-ring"} aria-label="Sort" defaultValue="newest">
                 <option value="newest">Newest</option>
                 <option value="low">Price: low to high</option>
                 <option value="high">Price: high to low</option>
               </select>
-              <div id="bb-customSelect-gemxz-panel" role="listbox">
-                <div role="option" id="bb-customSelect-gemxz-selectedOption">Newest</div>
-                <div role="option">Price: low to high</div>
-                <div role="option">Price: high to low</div>
-              </div>
             </div>
           </div>
           <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
-            <article className="group flex flex-col">
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Black Curly Bob Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/black-curly-bob-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Black Curly Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/9663927b481fda02.jpg" />
               </a>
@@ -107,7 +90,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Burgundy Pixie Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/burgundy-pixie-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Burgundy Pixie Wig" loading="lazy" width="896" height="1120" src="/site-assets/85103cb63ab3cd33.jpg" />
               </a>
@@ -124,7 +109,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Long Black Curly Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/long-black-curly-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Long Black Curly Wig" loading="lazy" width="896" height="1120" src="/site-assets/53e26930263430b0.jpg" />
               </a>
@@ -141,7 +128,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Blonde Curled Bob Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/blonde-curled-bob-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Blonde Curled Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/74c7c0af3bc42021.jpg" />
               </a>
@@ -158,7 +147,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Silver Grey Curled Bob Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/silver-grey-curled-bob-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Silver Grey Curled Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/e38bc4a7fec9ea48.jpg" />
               </a>
@@ -175,7 +166,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Long Brown Wave Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/long-brown-wave-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Long Brown Wave Wig" loading="lazy" width="896" height="1120" src="/site-assets/36d0cd42d8db5863.jpg" />
               </a>
@@ -192,7 +185,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Brown Curly Bob Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/brown-curly-bob-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Brown Curly Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/59bf19b048cb29f4.jpg" />
               </a>
@@ -209,7 +204,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Burgundy Curly Bob Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/burgundy-curly-bob-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Burgundy Curly Bob Wig" loading="lazy" width="896" height="1120" src="/site-assets/1929888fd4b36281.jpg" />
               </a>
@@ -226,7 +223,9 @@ function Index() {
                 </div>
               </div>
             </article>
-            <article className="group flex flex-col">
+            )}
+            {(!category || category === "wigs-extensions") && (!availability || availability === "ask") && "Long Straight Black Wig".toLowerCase().includes(query.toLowerCase()) && (
+<article className="group flex flex-col">
               <a className={"relative block aspect-[4/5] overflow-hidden rounded-xl \x62g-secondary"} href="/product/long-straight-black-wig">
                 <img className={"size-full object-contain transition duration-700 \x67roup-hover:\x73cale-105"} alt="Long Straight Black Wig" loading="lazy" width="896" height="1120" src="/site-assets/0d9de28c34dfba5b.jpg" />
               </a>
@@ -243,7 +242,9 @@ function Index() {
                 </div>
               </div>
             </article>
+            )}
           </div>
+          {(category && category !== "wigs-extensions" || availability && availability !== "ask") && <p className="py-12 text-center text-muted-foreground">Contact us on WhatsApp for products in this category and current availability.</p>}
         </div>
       </main>
       <ImportedFooter />
@@ -259,6 +260,13 @@ function Index() {
 }
 
 function ImportedHeader() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [open]);
   return (
     <header className={"sticky top-0 z-40 \x62order-b \x62g-background/\x390 \x62ackdrop-blur"}>
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 md:h-28 md:px-8">
@@ -267,7 +275,7 @@ function ImportedHeader() {
         </a>
         <nav className={"hidden gap-8 \x6dd:\x66lex"} aria-label="Main">
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/">Home</a>
-          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary text-primary"} aria-current="page" href="#">Shop</a>
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary text-primary"} aria-current="page" href="/shop">Shop</a>
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/categories">Categories</a>
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/about">About Us</a>
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/contact">Contact</a>
@@ -281,7 +289,7 @@ function ImportedHeader() {
               <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
             </svg>
           </a>
-          <button className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden"} aria-label="Menu" aria-expanded="false">
+          <button className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden"} type="button" onClick={() => setOpen(value => !value)} aria-label={open ? "Close menu" : "Menu"} aria-expanded={open} aria-controls="mobile-nav">
             <svg className="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 5h16" />
               <path d="M4 12h16" />
@@ -290,6 +298,16 @@ function ImportedHeader() {
           </button>
         </div>
       </div>
+      {open && (
+        <nav id="mobile-nav" className="border-t bg-background px-4 pb-6 md:hidden" aria-label="Mobile">
+          <Link to="/" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Home</Link>
+          <Link to="/shop" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Shop</Link>
+          <Link to="/categories" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Categories</Link>
+          <Link to="/about" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">About Us</Link>
+          <Link to="/contact" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Contact</Link>
+          <a href="https://wa.me/2347025941898" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp mt-5 w-full">Chat on WhatsApp</a>
+        </nav>
+      )}
     </header>
   );
 }
@@ -311,7 +329,7 @@ function ImportedFooter() {
               <a className="hover:text-gold" href="/">Home</a>
             </li>
             <li>
-              <a className="hover:text-gold" aria-current="page" href="#">Shop</a>
+              <a className="hover:text-gold" aria-current="page" href="/shop">Shop</a>
             </li>
             <li>
               <a className="hover:text-gold" href="/categories">Categories</a>

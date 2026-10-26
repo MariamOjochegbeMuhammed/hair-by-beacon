@@ -1,8 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import capturedCSS from "../styles/pages/contact.css?raw";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({ meta: [{ title: "Contact \u0026 Store Location | Hair_by_beacon Kubwa" }] }),
+  head: () => ({ meta: [
+    { title: "Contact & Store Location | Hair_by_beacon Kubwa" },
+    { name: "description", content: "Call or chat with Hair_by_beacon and find our store in Kubwa, Abuja." },
+    { property: "og:title", content: "Contact & Store Location | Hair_by_beacon Kubwa" },
+    { property: "og:description", content: "Call or chat with Hair_by_beacon and find our store in Kubwa, Abuja." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
   staticData: { importedDocument: { html: { "lang": "en" }, body: {  } } },
   component: Index,
 });
@@ -36,6 +44,13 @@ function Index() {
 }
 
 function ImportedHeader() {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [open]);
   return (
     <header className={"sticky top-0 z-40 \x62order-b \x62g-background/\x390 \x62ackdrop-blur"}>
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 md:h-28 md:px-8">
@@ -47,7 +62,7 @@ function ImportedHeader() {
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/shop">Shop</a>
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/categories">Categories</a>
           <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary"} href="/about">About Us</a>
-          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary text-primary"} aria-current="page" href="#">Contact</a>
+          <a className={"text-sm font-medium \x74ext-foreground/\x380 hover:text-primary text-primary"} aria-current="page" href="/contact">Contact</a>
         </nav>
         <div className="flex items-center gap-2">
           <a className={"btn btn-whatsapp hidden !min-h-10 !px-4 \x73m:\x69nline-flex"} href="https://wa.me/2347025941898?text=Hello%20Hair_by_beacon%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." rel="noopener noreferrer" target="_blank"><svg className="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> WhatsApp</a>
@@ -58,7 +73,7 @@ function ImportedHeader() {
               <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
             </svg>
           </a>
-          <button className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden"} aria-label="Menu" aria-expanded="false">
+          <button className={"grid size-11 place-items-center rounded-full \x68over:\x62g-secondary \x6dd:\x68idden"} type="button" onClick={() => setOpen(value => !value)} aria-label={open ? "Close menu" : "Menu"} aria-expanded={open} aria-controls="mobile-nav">
             <svg className="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M4 5h16" />
               <path d="M4 12h16" />
@@ -67,6 +82,16 @@ function ImportedHeader() {
           </button>
         </div>
       </div>
+      {open && (
+        <nav id="mobile-nav" className="border-t bg-background px-4 pb-6 md:hidden" aria-label="Mobile">
+          <Link to="/" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Home</Link>
+          <Link to="/shop" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Shop</Link>
+          <Link to="/categories" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Categories</Link>
+          <Link to="/about" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">About Us</Link>
+          <Link to="/contact" onClick={() => setOpen(false)} className="block border-b py-4 font-display text-xl">Contact</Link>
+          <a href="https://wa.me/2347025941898" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp mt-5 w-full">Chat on WhatsApp</a>
+        </nav>
+      )}
     </header>
   );
 }
@@ -121,7 +146,7 @@ function ImportedFooter() {
               <a className="hover:text-gold" href="/about">About Us</a>
             </li>
             <li>
-              <a className="hover:text-gold" aria-current="page" href="#">Contact</a>
+              <a className="hover:text-gold" aria-current="page" href="/contact">Contact</a>
             </li>
             <li>
               <a className="hover:text-gold" href="/privacy">Privacy Policy</a>
